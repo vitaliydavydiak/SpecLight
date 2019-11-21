@@ -12,6 +12,7 @@ namespace SpecLight.Infrastructure
 
         public Step Step { get; private set; }
         public Status Status { get; set; }
+        public TimeSpan ExecutionTime { get; set; }
         public Exception Error { get; set; }
         public ExceptionDispatchInfo ExceptionDispatchInfo { get; set; }
 

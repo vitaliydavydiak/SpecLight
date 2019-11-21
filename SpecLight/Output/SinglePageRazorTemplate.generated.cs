@@ -1027,11 +1027,21 @@ WriteLiteral("\r\n\t\t\t\t\t\t\t\t\t");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t\t\t\t\t\t\t</li>\r\n");
+WriteLiteral("\r\n                                    <span class=\"executionTime\">(");
 
 
             
-            #line 122 "..\..\Output\SinglePageRazorTemplate.cshtml"
+            #line 121 "..\..\Output\SinglePageRazorTemplate.cshtml"
+                                                            Write(o.ExecutionTime.ToString("s\\.fff"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" sec.)</span>\r\n\t\t\t\t\t\t\t\t</li>\r\n");
+
+
+            
+            #line 123 "..\..\Output\SinglePageRazorTemplate.cshtml"
 							}
 
             

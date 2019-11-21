@@ -38,6 +38,9 @@ li.pending {
 li.notrun {
   color: #000000;
 }
+.executionTime {
+  color: #8c8c8c;
+}
 #TableOfContents {
   display: block;
   position: fixed;

@@ -46,6 +46,7 @@ namespace SpecLight.Infrastructure
                 {
                     s += ExceptionCaught;
                 }
+                s += $"\t({o.ExecutionTime.ToString("s\\.fff")}) sec.";
                 var cells = new[]
                 {
                     message.PadRight(maxMessageWidth),

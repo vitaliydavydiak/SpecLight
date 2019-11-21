@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.ExceptionServices;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 using SpecLight.Infrastructure;
 
@@ -196,9 +195,11 @@ becomes
             var skip = false;
             foreach (var step in Steps)
             {
+                var sw = Stopwatch.StartNew();
                 step.WillBeSkipped = skip;
                 Fixtures.ForEach(x => x.StepSetup(step));
                 var o = await step.ExecuteAsync();
+                o.ExecutionTime = sw.Elapsed;
                 Outcomes.Add(o);
                 skip = skip || o.CausesSkip;
                 Fixtures.ForEach(x => x.StepTeardown(step));
@@ -212,9 +213,11 @@ becomes
             var skip = false;
             foreach (var step in Steps)
             {
+                var sw = Stopwatch.StartNew();
                 step.WillBeSkipped = skip;
                 Fixtures.ForEach(x => x.StepSetup(step));
                 var o = step.Execute();
+                o.ExecutionTime = sw.Elapsed;
                 Outcomes.Add(o);
                 skip = skip || o.CausesSkip;
                 Fixtures.ForEach(x => x.StepTeardown(step));
